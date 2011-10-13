@@ -2,7 +2,7 @@
 
 ## Installation
     git clone git://github.com/andrewslotin/irbrc.git
-    gem install wirble pretty_print hirb
+    gem install wirble hirb
     ln -s irbrc/.irbrc ~/.irbrc
 
 ## Includes:
