@@ -18,9 +18,9 @@ if rails_env = ENV['RAILS_ENV']
   rails_root = File.basename(Dir.pwd)
   IRB.conf[:PROMPT] ||= {}
   IRB.conf[:PROMPT][:RAILS] = {
-    :PROMPT_I => "#{rails_root}> ",
-    :PROMPT_S => "#{rails_root}* ",
-    :PROMPT_C => "#{rails_root}? ",
+    :PROMPT_I => "#{rails_root}@#{ENV['RAILS_ENV']}> ",
+    :PROMPT_S => "#{rails_root}@#{ENV['RAILS_ENV']}* ",
+    :PROMPT_C => "#{rails_root}@#{ENV['RAILS_ENV']}? ",
     :RETURN   => "=> %s\n" 
   }
   IRB.conf[:PROMPT_MODE] = :RAILS
@@ -33,12 +33,12 @@ if rails_env = ENV['RAILS_ENV']
   end
 end
 
-if Wirble
+if Object.const_defined?('Wirble')
   Wirble.init
   Wirble.colorize
 end
 
-if Hirb
+if Object.const_defined?('Hirb')
   Hirb.enable
   extend Hirb::Console
 end
